@@ -14,4 +14,6 @@ func TestDaysUnix(t *testing.T) {
 
 func TestDaysYmd(t *testing.T) {
 	t.Logf("after 1 day Ymd: %v", DaysYmd(1))
+	t.Logf("after -2 day Ymd: %v", DaysYmd(-2))
+	t.Logf("after -4 day Ymd: %v", DaysYmd(-4))
 }
