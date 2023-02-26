@@ -28,7 +28,7 @@ func TestWarp(t *testing.T) {
 	// fmt.Println("Error.as", errors.As(innerErr, &codeErrEg))
 	fmt.Println("Error.as", errors.As(innerErr, &StrError{})) //false
 	fmt.Println("Error.is", errors.Is(innerErr, err1))        // true
-	assert.Equal(t, errors.Is(innerErr, &StrError{}), false)
+	assert.Equal(t, errors.As(innerErr, &StrError{}), false)
 	assert.Equal(t, errors.Is(innerErr, err1), true)
 
 }
