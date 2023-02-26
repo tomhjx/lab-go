@@ -4,6 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestWarp(t *testing.T) {
@@ -20,7 +22,13 @@ func TestWarp(t *testing.T) {
 	// fmt.Println("Error.as", errors.As(codeErr, &codeErrEg))
 	fmt.Println("Error.as", errors.As(strErr, &StrError{}))
 	fmt.Println("Error.is", errors.Is(strErr, err1))
+	assert.Equal(t, errors.As(strErr, &StrError{}), true)
+	assert.Equal(t, errors.Is(strErr, err1), false)
+
 	// fmt.Println("Error.as", errors.As(innerErr, &codeErrEg))
-	fmt.Println("Error.as", errors.As(innerErr, &StrError{}))
-	fmt.Println("Error.is", errors.Is(innerErr, err1))
+	fmt.Println("Error.as", errors.As(innerErr, &StrError{})) //false
+	fmt.Println("Error.is", errors.Is(innerErr, err1))        // true
+	assert.Equal(t, errors.Is(innerErr, &StrError{}), false)
+	assert.Equal(t, errors.Is(innerErr, err1), true)
+
 }
