@@ -14,6 +14,13 @@ func DaysYmd(n int) string {
 	return DaysTime(n).Format("20060102")
 }
 
+func MonthsYmd(n int) string {
+	return MonthsTime(n).Format("20060102")
+}
 func DaysTime(n int) time.Time {
 	return time.Now().AddDate(0, 0, n)
+}
+
+func MonthsTime(n int) time.Time {
+	return time.Now().AddDate(0, n, 0)
 }
