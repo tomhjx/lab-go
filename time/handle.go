@@ -24,3 +24,11 @@ func DaysTime(n int) time.Time {
 func MonthsTime(n int) time.Time {
 	return time.Now().AddDate(0, n, 0)
 }
+
+func FirstDayOfMonth(t time.Time) time.Time {
+	return time.Date(t.Year(), t.Month(), 1, 0, 0, 0, 0, t.Location())
+}
+
+func LastDayOfMonth(t time.Time) time.Time {
+	return time.Date(t.Year(), t.Month(), 1, 0, 0, 0, 0, t.Location()).AddDate(0, 1, -1)
+}
