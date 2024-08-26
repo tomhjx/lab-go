@@ -82,3 +82,6 @@ func TestAddDate(t *testing.T) {
 	}
 
 }
+func TestFormat(t *testing.T) {
+	t.Logf("now Y-m-d H: %s", time.Now().Format("2006-01-02 15"))
+}
